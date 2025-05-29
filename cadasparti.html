@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script>
+        function mostrarCampo() {
+          var tipo = document.getElementById("tipo").value;
+          var campoRM = document.getElementById("campo-rm");
+          var campoCPF = document.getElementById("campo-cpf");
+    
+          // Esconde os dois campos primeiro
+          campoRM.style.display = "none";
+          campoCPF.style.display = "none";
+    
+          // Mostra o campo de acordo com a escolha
+          if (tipo === "aluno") {
+            campoRM.style.display = "block";
+          } else if (tipo === "responsavel") {
+            campoCPF.style.display = "block";
+          }
+        }
+    </script>
 </head>
 <body>
 
@@ -32,7 +51,23 @@
               <input type="tel" id="palestrante" name="telefone" required><br><br>
               
               <label for="seleção">Seleção de uma palestra:</label><br>
-              <input type="text" id="palestrante" name="palestrante" required><br><br>
+              <input type="text" id="palestrante" name="seleção" required><br><br>
+
+              <label for="tipo">Selecione o tipo de solicitante:</label><br>
+              <select id="tipo" name="tipo" onchange="mostrarCampo()" required>
+                <option value="aluno">Aluno</option>
+                <option value="responsavel">Pai ou responsável</option>
+              </select><br><br>
+          
+              <div id="campo-rm" style="display: none;">
+                <label for="rm">RM do Aluno:</label><br>
+                <input type="text" id="rm" name="rm"><br><br>
+              </div>
+          
+              <div id="campo-cpf" style="display: none;">
+                <label for="cpf">CPF do Responsável:</label><br>
+                <input type="text" id="cpf" name="cpf"><br><br>
+              </div>
               
               
               <input type="submit" value="Cadastrar">
