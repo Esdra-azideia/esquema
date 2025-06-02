@@ -12,6 +12,14 @@
     padding: 20px;
   }
 
+  .logo{
+    display: block;
+    margin: 20px auto 10px auto;
+    max-width: 140px;
+    height: auto;
+}
+  
+
   
   nav {
     background-color: #333;
